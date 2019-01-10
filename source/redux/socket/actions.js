@@ -21,12 +21,12 @@ export const socketActions = {
 
             if (meta.action === 'like') {
                 dispatch(
-                    tasksActions.starTask({
+                    tasksActions.favoriteTask({
                         taskId: data.taskId,
                     })
                 );
             } else {
-                dispatch(tasksActions.unstarTask(data));
+                dispatch(tasksActions.unfavoriteTask(data));
             }
         });
     },

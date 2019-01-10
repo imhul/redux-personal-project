@@ -4,7 +4,7 @@ import {types} from '../tasks/types';
 export const uiActions = {
     startFetching: () => {
         return {
-            type: types.START_FETCHING,
+            type: types.FAVORITET_FETCHING,
         };
     },
     stopFetching: () => {

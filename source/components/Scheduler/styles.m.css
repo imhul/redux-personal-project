@@ -115,7 +115,7 @@
 
         & footer {
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-favoritet;
             align-items: center;
 
             & div {

@@ -6,26 +6,22 @@ import { api } from '../../../../REST';
 import { tasksActions } from '../../../tasks/actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* unlikePost({ payload: postId }) {
+export function* favoriteTask({ payload: taskId }) {
     try {
         yield put(uiActions.startFetching());
 
-        const response = yield apply(api, api.posts.like, [postId]);
+        const response = yield apply(api, api.update, [ taskId ]);
 
-        if( response.status !== 204 ) {
+        if( response.status !== 200 ) {
             const { message } = yield apply(response, response.json);
 
             throw new Error(message);
         }
 
-        const liker = yield select((state) => {
-            return state.profile.removeAll(['avatar', 'token', 'firstName', 'lastName']);
-        });
-
-        yield put(postsActions.unlikePost({ liker, postId }));
+        yield put(tasksActions.favoriteTask({ taskId }));
 
     } catch (error) {
-        yield put(uiActions.emitError("unlike post worker error", error));
+        yield put(uiActions.emitError("favorite task worker error", error));
     } finally {
         yield put(uiActions.stopFetching());
     }

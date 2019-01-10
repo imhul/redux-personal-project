@@ -1,16 +1,16 @@
 // Core
-import { put, apply, select } from 'redux-saga/effects';
+import { put, apply } from 'redux-saga/effects';
 
 // Instruments
 import { api } from '../../../../REST';
 import { tasksActions } from '../../../tasks/actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* removePost({ payload: postId }) {
+export function* removePost({ payload: taskId }) {
     try {
         yield put(uiActions.startFetching());
 
-        const response = yield apply(api, api.posts.remove, [postId]);
+        const response = yield apply(api, api.remove, [ taskId ]);
 
         if( response.status !== 204 ) {
             const { message } = yield apply(response, response.json);
@@ -18,10 +18,10 @@ export function* removePost({ payload: postId }) {
             throw new Error(message);
         }
 
-        yield put(postsActions.removePost(postId));
+        yield put(tasksActions.removeTask( taskId ));
 
     } catch (error) {
-        yield put(uiActions.emitError("remove post worker error", error));
+        yield put(uiActions.emitError("remove task worker error", error));
     } finally {
         yield put(uiActions.stopFetching());
     }

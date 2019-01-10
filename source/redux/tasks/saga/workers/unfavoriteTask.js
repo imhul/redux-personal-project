@@ -1,26 +1,27 @@
 // Core
-import { put, apply, select } from 'redux-saga/effects';
+import { put, apply } from 'redux-saga/effects';
 
 // Instruments
 import { api } from '../../../../REST';
 import { tasksActions } from '../../../tasks/actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* createPost({ payload: comment }) {
+export function* unfavoriteTask({ payload: taskId }) {
     try {
         yield put(uiActions.startFetching());
 
-        const response = yield apply(api, api.create, [comment]);
-        const { data: task, message } = yield apply(response, response.json);
+        const response = yield apply(api, api.update, [ taskId ]);
 
         if( response.status !== 200 ) {
+            const { message } = yield apply(response, response.json);
+
             throw new Error(message);
         }
 
-        yield put(tasksActions.createTask( task ));
+        yield put(tasksActions.unfavoriteTask({ taskId }));
 
     } catch (error) {
-        yield put(uiActions.emitError("create task worker error", error));
+        yield put(uiActions.emitError("unfavorite task worker error", error));
     } finally {
         yield put(uiActions.stopFetching());
     }

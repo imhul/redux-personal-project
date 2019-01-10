@@ -2,8 +2,8 @@
 import { call } from 'redux-saga/effects';
 
 // Watcher
-import { watchTasks } from '../redux/tasks/saga/watcher';
+import { watchTasks } from '../redux/tasks/saga/watchers';
 
-export function* saga() {
+export function* rootSaga() {
     yield call(watchTasks);
 };

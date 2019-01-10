@@ -4,9 +4,9 @@ import { types } from './types';
 export const tasksActions = {
 
     // Sync
-    fillTasks: (tasks) => {
+    fetchTasks: (tasks) => {
         return {
-            type: types.FILL_TASKS,
+            type: types.FETCH_TASKS,
             payload: tasks
         }
     },
@@ -28,35 +28,35 @@ export const tasksActions = {
             payload: taskId
         }
     },
-    confirmTask: (taskId) => {
+    completeTask: (taskId) => {
         return {
-            type: types.CONFIRM_TASK,
+            type: types.COMPLETE_TASK,
             payload: taskId
         }
     },
-    confirmAll: (tasks) => {
+    completeAll: (tasks) => {
         return {
-            type: types.CONFIRM_TASKS,
+            type: types.COMPLETE_TASKS,
             payload: tasks
         }
     },
-    starTask: (taskId) => {
+    favoriteTask: (taskId) => {
         return {
-            type: types.STAR_TASK,
+            type: types.FAVORITE_TASK,
             payload: taskId
         }
     },
-    unstarTask: (taskId) => {
+    unfavoriteTask: (taskId) => {
         return {
-            type: types.UNSTAR_TASK,
+            type: types.UNFAVORITE_TASK,
             payload: taskId
         }
     },
 
     // Async
-    fillTasksAsync: (tasks) => {
+    fetchTasksAsync: (tasks) => {
         return {
-            type: types.FILL_TASKS_ASYNC,
+            type: types.FETCH_TASKS_ASYNC,
             payload: tasks
         }
     },
@@ -78,28 +78,28 @@ export const tasksActions = {
             payload: taskId
         }
     },
-    confirmTaskAsync: (taskId) => {
+    completeTaskAsync: (taskId) => {
         return {
-            type: types.CONFIRM_TASK_ASYNC,
+            type: types.COMPLETE_TASK_ASYNC,
             payload: taskId
         }
     },
-    confirmAllAsync: (tasks) => {
+    completeAllAsync: (tasks) => {
         return {
-            type: types.CONFIRM_TASKS_ASYNC,
+            type: types.COMPLETE_TASKS_ASYNC,
             payload: tasks
         }
     },
-    starTaskAsync: (taskId) => {
+    favoriteTaskAsync: (taskId) => {
         return {
-            type: types.STAR_TASK_ASYNC,
+            type: types.FAVORITE_TASK_ASYNC,
             payload: taskId
         }
     },
-    unstarTaskAsync: (taskId) => {
+    unfavoriteTaskAsync: (taskId) => {
         return {
-            type: types.UNSTAR_TASK_ASYNC,
+            type: types.UNFAVORITE_TASK_ASYNC,
             payload: taskId
         }
     },
-}
+};

@@ -10,7 +10,7 @@ const initialState =Map({
 
 export const uiReducer = (state = initialState, action) => {
     switch(action.type) {
-        case types.START_FETCHING:
+        case types.FAVORITET_FETCHING:
             return state.set('isFetching', true);
 
         case types.STOP_FETCHING:

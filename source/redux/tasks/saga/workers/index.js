@@ -1,8 +1,8 @@
 export { fetchTasks } from './fetchTasks';
 export { createTask } from './createTask';
-export { updateTask } from './updateTask';
+export { editTask } from './editTask';
 export { removeTask } from './removeTask';
-export { confirmTask } from './confirmTask';
-export { confirmAll } from './confirmAll';
-export { starTask } from './starTask';
-export { unstarTask } from './unstarTask';
+export { completeTask } from './completeTask';
+export { completeAll } from './completeAll';
+export { favoriteTask } from './favoriteTask';
+export { unfavoriteTask } from './unfavoriteTask';

@@ -1,14 +1,17 @@
 // Core
-import { fromJS, List } from 'immutable';
+import { fromJS, Map } from 'immutable';
 
 // Instruments
 import { types } from './types';
 
-const initialState = List();
+const initialState = Map({
+    isFavorite: false,
+    isComplete: false,
+});
 
 export const tasksReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.FILL_TASKS:
+        case types.FETCH_TASKS:
             return fromJS(action.payload);
 
         case types.CREATE_TASK:
@@ -20,7 +23,7 @@ export const tasksReducer = (state = initialState, action) => {
         case types.REMOVE_TASK:
             return state.filter(task => task.get('id') !== action.payload);
 
-        case types.CONFIRM_TASK:
+        case types.COMPLETE_TASK:
             return state.updateIn(
                 [
                     state.findIndex((task) => {
@@ -33,7 +36,7 @@ export const tasksReducer = (state = initialState, action) => {
                 }
             );
 
-        case types.CONFIRM_TASKS:
+        case types.COMPLETE_TASKS:
             return state.updateIn(
                 [
                     state.findIndex((task) => {
@@ -46,7 +49,7 @@ export const tasksReducer = (state = initialState, action) => {
                 }
             );
 
-        case types.STAR_TASK:
+        case types.FAVORITE_TASK:
             return state.updateIn(
                 [
                     state.findIndex((task) => {
@@ -59,7 +62,7 @@ export const tasksReducer = (state = initialState, action) => {
                 }
             );
 
-        case types.UNSTAR_TASK:
+        case types.UNFAVORITE_TASK:
             return state.updateIn(
                 [
                     state.findIndex((task) => {

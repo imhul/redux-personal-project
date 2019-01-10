@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import { rootReducer } from './rootReducer';
 
 // Saga
-import { saga } from './saga';
+import { rootSaga } from './rootSaga';
 
 // Middleware
 import { enhancedStore, sagaMiddleware } from './middleware/core'
@@ -13,4 +13,4 @@ import { enhancedStore, sagaMiddleware } from './middleware/core'
 export const store = createStore( rootReducer, enhancedStore );
 
 // Вызывается только после создания store
-sagaMiddleware.run(saga);
+sagaMiddleware.run( rootSaga );
