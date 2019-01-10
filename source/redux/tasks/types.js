@@ -1,0 +1,22 @@
+export const types = {
+
+    // Sync
+    FILL_TASKS:             'FILL_TASKS',
+    CREATE_TASK:            'CREATE_TASK',
+    REMOVE_TASK:            'REMOVE_TASK',
+    UPDATE_TASK:            'UPDATE_TASK',
+    CONFIRM_TASKS:          'CONFIRM_TASKS',
+    CONFIRM_TASK:           'CONFIRM_TASK',
+    STAR_TASK:              'STAR_TASK',
+    UNSTAR_TASK:            'UNSTAR_TASK',
+
+    // Async
+    FILL_TASKS_ASYNC:       'FILL_TASKS_ASYNC',
+    CREATE_TASK_ASYNC:      'CREATE_TASK_ASYNC',
+    REMOVE_TASK_ASYNC:      'REMOVE_TASK_ASYNC',
+    UPDATE_TASK_ASYNC:      'UPDATE_TASK_ASYNC',
+    CONFIRM_TASKS_ASYNC:    'CONFIRM_TASKS_ASYNC',
+    CONFIRM_TASK_ASYNC:     'CONFIRM_TASK_ASYNC',
+    STAR_TASK_ASYNC:        'STAR_TASK_ASYNC',
+    UNSTAR_TASK_ASYNC:      'UNSTAR_TASK_ASYNC',
+};
